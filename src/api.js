@@ -1,5 +1,5 @@
 const apiModule = () => {
-  const postData = async (url = '', data = {}) => {
+  const post = async (url = '', data = {}) => {
     const response = await fetch(url, {
       method: 'POST',
       mode: 'cors',
@@ -15,12 +15,12 @@ const apiModule = () => {
     return response.json();
   };
 
-  const getData = async () => {
+  const get = async () => {
     const req = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/QYuDjx47z1peVEbHaQg3/scores/');
     return req.json();
   };
 
-  return { postData, getData }
+  return { post, get }
 }
 
 export { apiModule as default }
