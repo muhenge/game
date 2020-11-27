@@ -1,3 +1,4 @@
+const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/';
 
 async function postData(url = '', data = {}) {
     const response = await fetch(url, {
@@ -15,8 +16,20 @@ async function postData(url = '', data = {}) {
     });
     return response.json();
   }
-  
-  postData('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/', { name: 'My cool new game' })
+
+async function getData(){
+    const req = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/QYuDjx47z1peVEbHaQg3/scores/');
+    return req.json();
+}
+
+
+getData()
+.then(data => {
+    console.log(data); 
+  });
+
+  postData(url, { name: 'My cool new game two' })
     .then(data => {
       console.log(data); 
     });
+
