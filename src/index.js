@@ -1,12 +1,18 @@
 import './css/vendor/tailwind.vendor.css';
 import './css/style.css';
-import greetingModule from "./dom";
-
+import apiModule from "./api";
+const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/';
 const init = () => {
-  const gm = greetingModule();
-  const mainContent = document.getElementById('content');
-  mainContent.classList.add(...['flex', 'justify-center'])
-  mainContent.appendChild(gm.createGreeting('Hello World'));
+  const api = apiModule();
+  api.postData(url, { name: 'My cool new game two' })
+  .then(data => {
+      console.log(data);
+  });
+
+  api.getData()
+  .then(data => {
+      console.log(data);
+  });
 };
 
 init();
