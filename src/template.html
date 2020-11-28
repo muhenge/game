@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Leader Board</title>
+</head>
+
+<body class="grid grid-layout bg-gray-200">
+  <header>
+    <section class="bg-indigo-500 h-50 p-8">
+      <div class="flex">
+        <h1 class="text-gray-200 tracking-widest uppercase font-hairline text-2xl">
+          Game Leader Board
+        </h1>
+      </div>
+      <div class="container mx-auto py-8">
+        <nav class="flex flex-wrap justify-center">
+          <a id="createGame" class="no-underline text-white hover:text-gray-700 rounded-xl 
+            py-2 px-4 font-medium mr-3 bg-indigo-900 hover:bg-indigo-100">Create Game</a>
+          <a id="createScore" class="no-underline text-gray-700 hover:text-white py-2
+             rounded-xl px-4 font-medium mx-3 bg-indigo-100 hover:bg-indigo-900">Add Score</a>
+        </nav>
+      </div>
+    </section>
+  </header>
+  <main id="main">
+    <div id="modalStation"></div>
+    <div id="content">
+
+    </div>
+  </main>
+  <template id="tmpl-modal">
+    <div class="fixed inset-0 z-10 overflow-y-auto">
+      <div class="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 transition-opacity">
+          <div id="modalContainer" class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        </div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
+        &#8203;
+        <div
+          class="inline-block overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+          role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+          <div class="px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">
+            <div id="working-station" class="sm:flex sm:items-start"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</body>
+
+</html>
