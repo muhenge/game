@@ -42,16 +42,16 @@ const domModule = () => {
 
   const addGame = async (event) => {
     event.preventDefault();
-    Array.from(event.target.elements).forEach(
-      formElement => formElement.disabled = true
-    );
 
     const name = document.getElementById('gameName');
     if (name && name.value !== '') {
+      Array.from(event.target.elements).forEach(
+        formElement => formElement.disabled = true
+      );
+
       let resp = await api.post(GAME_URI, { name: name.value });
       if (resp.result) {
         local.storeUid(resp.result.split(' ')[3]);
-        console.log(resp.result.split(' ')[3]);
         cleanModal();
       }
       Array.from(event.target.elements).forEach(
@@ -62,18 +62,19 @@ const domModule = () => {
 
   const addScore = async (event) => {
     event.preventDefault();
-    Array.from(event.target.elements).forEach(
-      formElement => formElement.disabled = true
-    );
+    
 
     const user = document.getElementById('player');
     const score = document.getElementById('score');
 
     if (user && score && user.value !== '' && score.value !== '') {
+      Array.from(event.target.elements).forEach(
+        formElement => formElement.disabled = true
+      );
+
       const gameId = local.getUid();
       let resp = await api.post(`${GAME_URI}${gameId.uid}/${SCORE_URI}`, { score: score.value, user: user.value });
       if (resp.result) {
-        console.log(resp.result);
         cleanModal();
       }
       Array.from(event.target.elements).forEach(
