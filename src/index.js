@@ -5,13 +5,13 @@ import domModule from "./dom";
 
 const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/';
 
+const dom = domModule();
 const init = async () => {
   const api = apiModule();
-  const dom = domModule();
-  setInterval(() => {
-    console.log('----------------------------')
-    console.log(await api.get());
-  }, 500);
+  // setInterval(async () => {
+  //   console.log('----------------------------')
+  //   console.log(await api.get());
+  // }, 500);
   
 };
 

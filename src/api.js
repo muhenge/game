@@ -1,6 +1,7 @@
+import { BASE_URL } from "./constants";
 const apiModule = () => {
-  const post = async (url = '', data = {}) => {
-    const response = await fetch(url, {
+  const post = async (uri = '', data = {}) => {
+    const response = await fetch(BASE_URL + uri, {
       method: 'POST',
       mode: 'cors',
       cache: 'no-cache',
@@ -15,8 +16,8 @@ const apiModule = () => {
     return response.json();
   };
 
-  const get = async () => {
-    const req = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/QYuDjx47z1peVEbHaQg3/scores/');
+  const get = async (uri) => {
+    const req = await fetch(BASE_URL + uri);
     return req.json();
   };
 
